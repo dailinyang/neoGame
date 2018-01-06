@@ -8,7 +8,7 @@
   "neoGame.myLedSprite.move|block": "%sprite|移動 %leds",
   "neoGame.myLedSprite.set|block": "%sprite|設定 %property|成 %value",
   "neoGame.myLedSprite.turn|block": "%sprite|向 %direction|轉 %degrees (°)度",
-  "neoGame.myLedSprite.goTo|block": "%sprite|直接跳到 x:%x |y:%y"
+  "neoGame.myLedSprite.goTo|block": "%sprite|直接跳到 x:%x |y:%y",
   "neoGame.addScore|block": "將分數改變 |%points 分",
   "neoGame.createSprite|block": "在|x: %x|y: %y | 處建立角色",
   "neoGame.neoGameOver|block": "遊戲結束",
@@ -18,5 +18,4 @@
   "neoGame.setScore|block": "設定分數為 %points| 分",
   "neoGame.startCountdown|block": "倒數計時 |(ms) %duration",
   "neoGame|block": "neoGame"
-
 }
