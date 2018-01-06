@@ -11,7 +11,7 @@
   "neoGame.myLedSprite.goTo|block": "%sprite|直接跳到 x:%x |y:%y",
   "neoGame.addScore|block": "將分數改變 |%points 分",
   "neoGame.createSprite|block": "在|x: %x|y: %y | 處建立角色",
-  "neoGame.neoGameOver|block": "遊戲結束",
+  "neoGame.gameOver|block": "遊戲結束",
   "neoGame.pause|block": "遊戲暫停",
   "neoGame.resume|block": "遊戲繼續",
   "neoGame.score|block": "目前分數",
