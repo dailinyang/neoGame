@@ -1,6 +1,6 @@
 # neoGame
 
-Modified Game package for 16*16 neoPixels array. 修改過的遊戲類積木，使用16*16 neoPixels(ws2812)作為輸出螢幕。
+Modified Game package for 16*16 neoPixels array. 遊戲類積木(改)，使用16x16 neoPixels(ws2812)作為輸出螢幕。
 
 ## License
 
