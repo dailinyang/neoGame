@@ -8,7 +8,7 @@
         "radio": "*",
         "neopixel": "github:microsoft/pxt-neopixel#v0.4.2"
     },
-    "description": "Modified Game package for 16*16 NeoPixles",
+    "description": "Modified Game package for 16*16 neoPixels array.<br>修改過的遊戲類積木，使用16*16 neoPixels(ws2812)作為輸出螢幕。",
     "files": [
 		"README.md",
         "main.ts",
