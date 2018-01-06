@@ -1,0 +1,22 @@
+{
+  "neoGame.myLedSprite.change|block": "%sprite|將 %property|改變 %value",
+  "neoGame.myLedSprite.delete|block": "刪除 %this",
+  "neoGame.myLedSprite.get|block": "%sprite|回報 %property 的值",
+  "neoGame.myLedSprite.ifOnEdgeBounce|block": "%sprite|碰到邊緣就反彈",
+  "neoGame.myLedSprite.isTouchingEdge|block": "%sprite|是否位在邊緣?",
+  "neoGame.myLedSprite.isTouching|block": "%sprite|是否與 %other|重疊?",
+  "neoGame.myLedSprite.move|block": "%sprite|移動 %leds",
+  "neoGame.myLedSprite.set|block": "%sprite|設定 %property|成 %value",
+  "neoGame.myLedSprite.turn|block": "%sprite|向 %direction|轉 %degrees (°)度",
+  "neoGame.myLedSprite.goTo|block": "%sprite|直接跳到 x:%x |y:%y"
+  "neoGame.addScore|block": "將分數改變 |%points 分",
+  "neoGame.createSprite|block": "在|x: %x|y: %y | 處建立角色",
+  "neoGame.neoGameOver|block": "遊戲結束",
+  "neoGame.pause|block": "遊戲暫停",
+  "neoGame.resume|block": "遊戲繼續",
+  "neoGame.score|block": "目前分數",
+  "neoGame.setScore|block": "設定分數為 %points| 分",
+  "neoGame.startCountdown|block": "倒數計時 |(ms) %duration",
+  "neoGame|block": "neoGame"
+
+}
