@@ -63,9 +63,16 @@ namespace neoGame {
      */
     //% block
     export function neoBoardShow() {
-        if (neoBoard) {
-            neoBoard.show()
-        }
+        if (neoBoard) neoBoard.show();
+    }
+
+    /**
+     * make neoBoard show()
+     * 
+     */
+    //% blockId=neoGmae_neoBoard_setXYColor block="set x:%x| y:%y| red:%red| green:%green| blue:%blue"
+    export function neoBoardSetXYColor(x: number, y: number, red: number, green: number, blue: number) {
+        neoBoard.setPixelColor(xy2Offset(x, y),neopixel.rgb(red, green, blue))
     }
 
     /**
@@ -490,7 +497,7 @@ namespace neoGame {
          * @param x TODO
          * @param y TODO
          */
-		//% blockId=game_sprite_goTo block="%sprite|move to x:%x |y:%y" blockGap=8
+        //% blockId=game_sprite_goTo block="%sprite|move to x:%x |y:%y" blockGap=8
         //% parts="ledmatrix"
         public goTo(x: number, y: number): void {
             this._x = x;
@@ -845,10 +852,10 @@ namespace neoGame {
          * @param blue
          * //% blockId=game_sprite_setRGB block="%sprite|set color to| Red:%red |Green:%green |Blue:%blue"
          */
-        public setRGB(red:number, green:number, blue:number){
-            this._red =  Math.clamp(0, 255, red);
-            this._green =  Math.clamp(0, 255, green);
-            this._blue =  Math.clamp(0, 255, blue);
+        public setRGB(red: number, green: number, blue: number) {
+            this._red = Math.clamp(0, 255, red);
+            this._green = Math.clamp(0, 255, green);
+            this._blue = Math.clamp(0, 255, blue);
         }
 
         /**
