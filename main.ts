@@ -19,7 +19,26 @@ enum myLedSpriteProperty {
 
 
 /**
- * 自訂的積木
+ * A Game package Change the output from LED to a neopixel Matrix.
+ * WARNING: Turn on all 256 neopixels to WHITE color will raise the current up to 15A! 
+ * #The BBC suggest in the safety guide, that the maximum current you can draw from 
+ *   the whole edge connector at any one time is 90mA.
+ * #One WHITE neopixel consumes 60mA.
+ * #But When mixing colors and displaying animations,
+ *   the current draw will be much less. 
+ * 
+ * 改用neopixel矩陣來當作GAME的輸出螢幕
+ * #風險自負警告! 請注意不要同時開啟過多的燈，否則將導致microbit或是連接的硬體有燒毀的可能。
+ * #256顆neopixel 全亮白色 電流= 15A.
+ * #1顆 全亮白色 電流= 60mA. 顯示動畫及其他顏色時,消耗電流遠低於 60mA.
+ * #microbit 安全手冊可容許電流上限 = 90mA.
+ * 
+ * --- How to connect ---
+ * LED matrix       microbit
+ * GND          -   GND
+ * 5V           -   3.3V output
+ * DIN          -   P2
+ * 
  */
 //% weight=100 color=#0fbc11 icon=""
 namespace neoGame {
@@ -817,6 +836,19 @@ namespace neoGame {
          */
         public setBlue(color: number): void {
             this._blue = Math.clamp(0, 255, color);
+        }
+        /**
+         * 設定RGB顏色
+         * @param this
+         * @param red
+         * @param green
+         * @param blue
+         * //% blockId=game_sprite_setRGB block="%sprite|set color to| Red:%red |Green:%green |Blue:%blue"
+         */
+        public setRGB(red:number, green:number, blue:number){
+            this._red =  Math.clamp(0, 255, red);
+            this._green =  Math.clamp(0, 255, green);
+            this._blue =  Math.clamp(0, 255, blue);
         }
 
         /**
