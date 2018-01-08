@@ -57,9 +57,9 @@ namespace neoGame {
     let neoBoard = neopixel.create(DigitalPin.P2, 256, NeoPixelMode.RGB)
     neoBoard.clear()
 
-    let neoBoardPostoDraw:number[] = []
-    let neoBoardColortoDraw: number[] = []
-    
+    let neoBoardPostoDraw: number[] = []
+    //let neoBoardColortoDraw: number[] = []
+
 
     /**
      * make neoBoard show()
@@ -77,8 +77,9 @@ namespace neoGame {
     //% blockId=neoGame_neoBoard_setXYColor block="set board x:%x| y:%y|Color red:%red| green:%green| blue:%blue"
     export function neoBoardSetXYColor(x: number, y: number, red: number, green: number, blue: number) {
         //neoBoard.setPixelColor(xy2Offset(x, y), neopixel.rgb(red, green, blue))
-        neoBoardPostoDraw.unshift( xy2Offset(x, y) )
-        neoBoardColortoDraw.unshift( neopixel.rgb(red, green, blue) )
+        neoBoardPostoDraw[xy2Offset(x, y)] = neopixel.rgb(red, green, blue)
+        //neoBoardPostoDraw.unshift(xy2Offset(x, y))
+        //neoBoardColortoDraw.unshift(neopixel.rgb(red, green, blue))
     }
 
     /**
@@ -396,15 +397,15 @@ namespace neoGame {
         const now = input.runningTime();
         neoBoard.clear()
 
-        
+
         //draw pixels not belong to Sprites.
         if (neoBoardPostoDraw.length > 0) {
             for (let i = 0; i < neoBoardPostoDraw.length; i++) {
-                neoBoard.setPixelColor(neoBoardPostoDraw[i], neoBoardColortoDraw[i])
+                neoBoard.setPixelColor(i, neoBoardPostoDraw[i])
             }
         }
 
-        //draw spites
+        //draw sprites
         for (let i = 0; i < _sprites.length; i++) {
             //_sprites[i]._plot(now);
             _sprites[i]._plot2();
@@ -413,12 +414,8 @@ namespace neoGame {
         //draw to stripe
         neoBoard.show()
 
-        /**
-         * clear neoBoardtoDrawarray
-         * */ 
-         while(neoBoardPostoDraw.length > 0) neoBoardPostoDraw.pop()
-         while (neoBoardColortoDraw.length > 0) neoBoardColortoDraw.pop()
         
+
 
 
 
@@ -473,7 +470,7 @@ namespace neoGame {
             this._green = 255;
             this._blue = 255;
 
-            init();
+            //init();
             _sprites.push(this);
 
             //TODO DEBUG
