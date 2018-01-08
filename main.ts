@@ -70,7 +70,7 @@ namespace neoGame {
      * make neoBoard show()
      * 
      */
-    //% blockId=neoGmae_neoBoard_setXYColor block="set x:%x| y:%y| red:%red| green:%green| blue:%blue"
+    //% blockId=neoGmae_neoBoard_setXYColor block="set board x:%x| y:%y|Color red:%red| green:%green| blue:%blue"
     export function neoBoardSetXYColor(x: number, y: number, red: number, green: number, blue: number) {
         neoBoard.setPixelColor(xy2Offset(x, y),neopixel.rgb(red, green, blue))
     }
@@ -746,7 +746,7 @@ namespace neoGame {
         //% weight=19 help=game/is-touching-edge
         //% blockId=game_sprite_touching_edge block="%sprite|touching edge?" blockGap=8
         public isTouchingEdge(): boolean {
-            return this._x == 0 || this._x == 16 || this._y == 0 || this._y == 16;
+            return this._x == 0 || this._x == 15 || this._y == 0 || this._y == 15;
         }
 
         /**
@@ -905,14 +905,25 @@ namespace neoGame {
         /**
          * 取得顏色值
          * @param this TODO
+         * //% block
          */
-        public red(): number {
+        public getRed(): number {
             return this._red;
         }
-        public green(): number {
+        /**
+         * 取得顏色值
+         * @param this TODO
+         * //% block
+         */
+        public getGreen(): number {
             return this._green;
         }
-        public blue(): number {
+        /**
+         * 取得顏色值
+         * @param this TODO
+         * //% block
+         */
+        public getBlue(): number {
             return this._blue;
         }
         /**
