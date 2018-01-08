@@ -70,7 +70,7 @@ namespace neoGame {
      * make neoBoard show()
      * 
      */
-    //% blockId=neoGmae_neoBoard_setXYColor block="set board x:%x| y:%y|Color red:%red| green:%green| blue:%blue"
+    //% blockId=neoGame_neoBoard_setXYColor block="set board x:%x| y:%y|Color red:%red| green:%green| blue:%blue"
     export function neoBoardSetXYColor(x: number, y: number, red: number, green: number, blue: number) {
         neoBoard.setPixelColor(xy2Offset(x, y), neopixel.rgb(red, green, blue))
     }
@@ -79,7 +79,7 @@ namespace neoGame {
      * Gets the current score
      */
     //% weight=9 help=game/score
-    //% blockId=game_score block="score" blockGap=8
+    //% blockId=neoGame_score block="score" blockGap=8
     export function score(): number {
         return _score;
     }
@@ -90,7 +90,7 @@ namespace neoGame {
     * @param points amount of points to change, eg: 1
     */
     //% weight=10 help=game/add-score
-    //% blockId=game_add_score block="change score by|%points" blockGap=8
+    //% blockId=neoGame_add_score block="change score by|%points" blockGap=8
     //% parts="ledmatrix"
     export function addScore(points: number): void {
         setScore(_score + points);
@@ -116,7 +116,7 @@ namespace neoGame {
     * @param ms countdown duration in milliseconds, eg: 10000
     */
     //% weight=9 help=game/start-countdown
-    //% blockId=game_start_countdown block="start countdown|(ms) %duration" blockGap=8
+    //% blockId=neoGame_start_countdown block="start countdown|(ms) %duration" blockGap=8
     //% parts="ledmatrix"
     export function startCountdown(ms: number): void {
         if (checkStart()) {
@@ -140,7 +140,7 @@ namespace neoGame {
      * Displays a game over animation and the score.
      */
     //% weight=8 help=game/game-over
-    //% blockId=game_game_over block="game over"
+    //% blockId=neoGame_game_over block="game over"
     //% parts="ledmatrix"
     export function gameOver(): void {
         if (!_isGameOver) {
@@ -183,7 +183,7 @@ namespace neoGame {
       * Sets the current score value
       * @param value new score value.
       */
-    //% blockId=game_set_score block="set score %points" blockGap=8
+    //% blockId=neoGame_set_score block="set score %points" blockGap=8
     //% weight=10 help=game/set-score
     export function setScore(value: number): void {
         _score = Math.max(0, value);
@@ -318,7 +318,7 @@ namespace neoGame {
     /**
      * Pauses the game rendering engine to allow other animations
      */
-    //% blockId=game_pause block="pause"
+    //% blockId=neoGame_pause block="pause"
     //% advanced=true blockGap=8 help=game/pause
     export function pause(): void {
         plot()
@@ -329,7 +329,7 @@ namespace neoGame {
     /**
      * Resumes the game rendering engine
      */
-    //% blockId=game_resume block="resume"
+    //% blockId=neoGame_resume block="resume"
     //% advanced=true blockGap=8 help=game/resumeP
     export function resume(): void {
         _paused = false;
@@ -362,7 +362,7 @@ namespace neoGame {
      * @param y sprite vertical coordinate, eg: 2
      */
     //% weight=60 blockGap=8 help=game/create-sprite
-    //% blockId=game_create_sprite block="create sprite at|x: %x|y: %y"
+    //% blockId=neoGame_create_sprite block="create sprite at|x: %x|y: %y"
     //% parts="ledmatrix"
     export function createSprite(x: number, y: number): myLedSprite {
         init();
@@ -462,7 +462,7 @@ namespace neoGame {
          * @param leds number of leds to move, eg: 1, -1
          */
         //% weight=50 help=game/move
-        //% blockId=game_move_sprite block="%sprite|move by %leds" blockGap=8
+        //% blockId=neoGame_move_sprite block="%sprite|move by %leds" blockGap=8
         //% parts="ledmatrix"
         public move(leds: number): void {
             if (this._dir == 0) {
@@ -497,7 +497,7 @@ namespace neoGame {
          * @param x TODO
          * @param y TODO
          */
-        //% blockId=game_sprite_goTo block="%sprite|move to x:%x |y:%y" blockGap=8
+        //% blockId=neoGame_sprite_goTo block="%sprite|move to x:%x |y:%y" blockGap=8
         //% parts="ledmatrix"
         public goTo(x: number, y: number): void {
             this._x = x;
@@ -512,7 +512,7 @@ namespace neoGame {
          * @param this TODO
          */
         //% weight=18 help=game/if-on-edge-bounce
-        //% blockId=game_sprite_bounce block="%sprite|if on edge, bounce"
+        //% blockId=neoGame_sprite_bounce block="%sprite|if on edge, bounce"
         //% parts="ledmatrix"
         public ifOnEdgeBounce(): void {
             if (this._dir == 0 && this._y == 0) {
@@ -566,7 +566,7 @@ namespace neoGame {
          * @param degrees angle in degrees to turn, eg: 45, 90, 180, 135
          */
         //% weight=49 help=game/turn
-        //% blockId=game_turn_sprite block="%sprite|turn %direction|by (°) %degrees"
+        //% blockId=neoGame_turn_sprite block="%sprite|turn %direction|by (°) %degrees"
         public turn(direction: Direction, degrees: number) {
             if (direction == Direction.Right)
                 this.setDirection(this._dir + degrees);
@@ -598,7 +598,7 @@ namespace neoGame {
          * @param the updated value
          */
         //% weight=29 help=game/set
-        //% blockId=game_sprite_set_property block="%sprite|set %property|to %value" blockGap=8
+        //% blockId=neoGame_sprite_set_property block="%sprite|set %property|to %value" blockGap=8
         public set(property: myLedSpriteProperty, value: number) {
             switch (property) {
                 case myLedSpriteProperty.X: this.setX(value); break;
@@ -618,7 +618,7 @@ namespace neoGame {
          * @param value amount of change, eg: 1
          */
         //% weight=30 help=game/change
-        //% blockId=game_sprite_change_xy block="%sprite|change %property|by %value" blockGap=8
+        //% blockId=neoGame_sprite_change_xy block="%sprite|change %property|by %value" blockGap=8
         public change(property: myLedSpriteProperty, value: number) {
             switch (property) {
                 case myLedSpriteProperty.X: this.changeXBy(value); break;
@@ -637,7 +637,7 @@ namespace neoGame {
          * @param property the name of the property to change
          */
         //% weight=28 help=game/get
-        //% blockId=game_sprite_property block="%sprite|%property"
+        //% blockId=neoGame_sprite_property block="%sprite|%property"
         public get(property: myLedSpriteProperty) {
             switch (property) {
                 case myLedSpriteProperty.X: return this.x();
@@ -734,7 +734,7 @@ namespace neoGame {
          * @param other TODO
          */
         //% weight=20 help=game/is-touching
-        //% blockId=game_sprite_touching_sprite block="%sprite|touching %other|?" blockGap=8
+        //% blockId=neoGame_sprite_touching_sprite block="%sprite|touching %other|?" blockGap=8
         public isTouching(other: myLedSprite): boolean {
             return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
@@ -744,7 +744,7 @@ namespace neoGame {
          * @param this TODO
          */
         //% weight=19 help=game/is-touching-edge
-        //% blockId=game_sprite_touching_edge block="%sprite|touching edge?" blockGap=8
+        //% blockId=neoGame_sprite_touching_edge block="%sprite|touching edge?" blockGap=8
         public isTouchingEdge(): boolean {
             return this._x == 0 || this._x == 15 || this._y == 0 || this._y == 15;
         }
@@ -850,7 +850,7 @@ namespace neoGame {
          * @param red
          * @param green
          * @param blue
-         * //% blockId=game_sprite_setRGB block="%sprite|set color to| Red:%red |Green:%green |Blue:%blue"
+         * //% blockId=neoGame_sprite_setRGB block="%sprite|set color to| Red:%red |Green:%green |Blue:%blue"
          */
         public setRGB(red: number, green: number, blue: number) {
             this._red = Math.clamp(0, 255, red);
