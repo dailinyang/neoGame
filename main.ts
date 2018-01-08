@@ -72,7 +72,7 @@ namespace neoGame {
      */
     //% blockId=neoGmae_neoBoard_setXYColor block="set board x:%x| y:%y|Color red:%red| green:%green| blue:%blue"
     export function neoBoardSetXYColor(x: number, y: number, red: number, green: number, blue: number) {
-        neoBoard.setPixelColor(xy2Offset(x, y),neopixel.rgb(red, green, blue))
+        neoBoard.setPixelColor(xy2Offset(x, y), neopixel.rgb(red, green, blue))
     }
 
     /**
@@ -645,9 +645,9 @@ namespace neoGame {
                 case myLedSpriteProperty.Direction: return this.direction()
                 case myLedSpriteProperty.Brightness: return this.brightness();
                 case myLedSpriteProperty.Blink: return this.blink();
-                case myLedSpriteProperty.Red: return this.red();
-                case myLedSpriteProperty.Green: return this.green();
-                case myLedSpriteProperty.Blue: return this.blue();
+                case myLedSpriteProperty.Red: return this.getRed();
+                case myLedSpriteProperty.Green: return this.getGreen();
+                case myLedSpriteProperty.Blue: return this.getBlue();
                 default: return 0;
             }
         }
