@@ -414,7 +414,7 @@ namespace neoGame {
         //draw to stripe
         neoBoard.show()
 
-        
+
 
 
 
@@ -513,6 +513,57 @@ namespace neoGame {
             this._x = Math.clamp(0, 15, this._x);
             this._y = Math.clamp(0, 15, this._y);
             plot();
+        }
+
+        /**
+         * Move a certain number of LEDs in the current direction 
+         * if neoBoard pixel in the way is not BLACK, then return that color, else return 0
+         * 
+         * @param this the sprite to move
+         * @param leds number of leds to move, eg: 1, -1
+         */
+        //% weight=50 help=game/move
+        //% blockId=neoGame_tryRingMove_sprite block="%sprite|try Move by %leds| loopMode: %loopMode" blockGap=8
+        public tryMove(leds: number, loopMode: boolean): number {
+            let result = 0
+            if (this._dir == 0) {
+                this._y = this._y - leds;
+            } else if (this._dir == 45) {
+                this._x = this._x + leds;
+                this._y = this._y - leds;
+            } else if (this._dir == 90) {
+                this._x = this._x + leds;
+            } else if (this._dir == 135) {
+                this._x = this._x + leds;
+                this._y = this._y + leds;
+            } else if (this._dir == 180) {
+                this._y = this._y + leds;
+            } else if (this._dir == -45) {
+                this._x = this._x - leds;
+                this._y = this._y - leds;
+            } else if (this._dir == -90) {
+                this._x = this._x - leds;
+            } else {
+                this._x = this._x - leds;
+                this._y = this._y + leds;
+            }
+
+            // make a loop move
+            if (loopMode) {
+                if (this._x < 0) this._x = 15;
+                if (this._x > 15) this._x = 0;
+                if (this._y < 0) this._y = 15;
+                if (this._y > 15) this._y = 0;
+            }
+            // regular move
+            else {
+                this._x = Math.clamp(0, 15, this._x);
+                this._y = Math.clamp(0, 15, this._y);
+            }
+
+            plot();
+            result = neoBoardPostoDraw[xy2Offset(this._x, this._y)];
+            return result;
         }
 
         /**
@@ -984,7 +1035,7 @@ namespace neoGame {
         basic.forever(() => {
             basic.pause(30);
             plot();
-            if (game.isGameOver()) {
+            if (neoGame.isGameOver()) {
                 basic.pause(600);
             }
         });
